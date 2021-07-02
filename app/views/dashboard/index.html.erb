@@ -1,0 +1,55 @@
+<h1 class="text-center">Dashboard Cafetería</h1>
+<table class="table table-bordered">
+  <thead  class="thead-light">
+    <tr>
+      <th scope="col">Ventas mensuales de los ultimos 12 meses</th>
+      <th scope="col">Cantidad de ventas mensuales de los ultimos 12 meses</th>
+      <th scope="col">Promedio de ventas mensuales de los ultimos 12 meses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= column_chart @last12_sales, stacked: true, prefix:"$ ", thousands: ","  %></td>
+      <td><%= column_chart @last12_sales_count, stacked: true, prefix:"Cant: ", thousands: ","  %></td>
+      <td><%= column_chart @last12_sales_avg, stacked: true, prefix:"Prom: ", thousands: ","  %></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Cantidad de ventas mensuales de los ultimos 12 meses por Origen</th>
+      <th scope="col">Cantidad de ventas mensuales de los ultimos 6 meses por Origen</th>
+      <th scope="col">Cantidad de ventas mensuales de los ultimos 3 meses por Origen</th>
+      <th scope="col">Cantidad de ventas mensuales de ultimo mes por Origen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= pie_chart @last12_sales_origin, stacked: true, prefix:"$ ", thousands: "," %></td>
+      <td><%= pie_chart @last6_sales_origin, stacked: true, prefix:"$ ", thousands: "," %></td>
+      <td><%= pie_chart @last3_sales_origin, stacked: true, prefix:"$ ", thousands: "," %></td>
+      <td><%= pie_chart @last1_sales_origin, stacked: true, prefix:"$ ", thousands: "," %></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Cantidad de ventas mensuales de los ultimos 12 meses por Mezcla</th>
+      <th scope="col">Cantidad de ventas mensuales de los ultimos 6 meses por Mezcla</th>
+      <th scope="col">Cantidad de ventas mensuales de los ultimos 3 meses por Mezcla</th>
+      <th scope="col">Cantidad de ventas mensuales de ultimo mes por Mezcla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= pie_chart @last12_sales_blend, stacked: true, prefix:"$ ", thousands: "," %></td>
+      <td><%= pie_chart @last6_sales_blend, stacked: true, prefix:"$ ", thousands: "," %></td>
+      <td><%= pie_chart @last3_sales_blend, stacked: true, prefix:"$ ", thousands: "," %></td>
+      <td><%= pie_chart @last1_sales_blend, stacked: true, prefix:"$ ", thousands: "," %></td>
+    </tr>
+  </tbody>
+</table>
